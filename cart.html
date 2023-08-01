@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Food Flavours Menu</title>
+</head>
+<body>
+    <h1>Food Flavours Menu</h1>
+
+    <!-- <?php
+    // Establishing a database connection
+    $host = 'localhost'; // Your database host (e.g., localhost)
+    $username = 'your_username'; // Your database username
+    $password = 'your_password'; // Your database password
+    $database = 'foodflavours'; // Your database name
+
+    $conn = new mysqli($host, $username, $password, $database);
+
+    // Checking the connection
+    if ($conn->connect_error) {
+        die("Connection failed: " . $conn->connect_error);
+    }
+
+    // Retrieving data from the 'menu' table
+    $sql = "SELECT * FROM menu";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+        // Displaying the menu
+        echo "<h2>Menu:</h2>";
+        echo "<table>";
+        echo "<tr><th>Item ID</th><th>Item Name</th><th>Category</th><th>Price</th></tr>";
+
+        while ($row = $result->fetch_assoc()) {
+            echo "<tr><td>".$row["item_id"]."</td><td>".$row["item_name"]."</td><td>".$row["item_category"]."</td><td>".$row["item_price"]."</td></tr>";
+        }
+
+        echo "</table>";
+    } else {
+        echo "No items found in the menu.";
+    }
+
+    // Closing the database connection
+    $conn->close();
+    ?> -->
+
+    <h2>Place an Order:</h2>
+    <form action="place_order.php" method="POST">
+        <label for="itemName">Customer Name:</label>
+        <input type="text" id="itemName" name="itemName" required>
+
+        <label for="item_id">Item ID:</label>
+        <input type="number" id="item_id" name="item_id" required>
+
+        <label for="payment_method">Payment Method:</label>
+        <select id="payment_method" name="payment_method" required>
+            <option value="cash">Cash</option>
+            <option value="card">Card</option>
+            <option value="upi">UPI</option>
+        </select>
+
+        <input type="submit" value="Place Order">
+    </form>
+</body>
+</html>
